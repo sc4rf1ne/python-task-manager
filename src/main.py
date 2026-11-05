@@ -59,6 +59,11 @@ def search_tasks_by_keyword(tasks: list, keyword: str) -> list:
     return [t for t in tasks if kw in t["title"].lower()]
 
 
+def filter_tasks_by_priority(tasks: list, priority: str) -> list:
+    """Фильтрация списка задач по заданному уровню приоритета."""
+    return [t for t in tasks if t["priority"] == priority]
+
+
 def get_all_tasks(tasks: list) -> list:
     """Возвращает форматированный список всех задач."""
     result = []
