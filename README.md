@@ -19,3 +19,8 @@ python-task-manager/
 - `add_task(tasks, title, priority)` — добавление новой задачи с приоритетом;
 - `complete_task(tasks, task_id)` — отметка задачи как выполненной;
 - `get_all_tasks(tasks)` — получение форматированного списка всех задач.
+
+## Документация по ветвлению
+- `feature/add-function` — добавление удаления задач и подсчёта статистики;
+- `feature/improve-interface` — обновление консольного интерфейса;
+- `feature/documentation` — описание структуры и веток репозитория.
