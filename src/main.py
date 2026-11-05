@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Консольный менеджер задач (Python Task Manager) — с валидацией ввода."""
 
+APP_VERSION = "1.2.0"
 ALLOWED_PRIORITIES = ("Низкий", "Средний", "Высокий")
 
 
