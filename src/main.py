@@ -53,6 +53,12 @@ def get_task_statistics(tasks: list) -> dict:
     return {"total": total, "completed": completed, "pending": total - completed}
 
 
+def search_tasks_by_keyword(tasks: list, keyword: str) -> list:
+    """Поиск задач по ключевому слову в названии (без учёта регистра)."""
+    kw = keyword.strip().lower()
+    return [t for t in tasks if kw in t["title"].lower()]
+
+
 def get_all_tasks(tasks: list) -> list:
     """Возвращает форматированный список всех задач."""
     result = []
