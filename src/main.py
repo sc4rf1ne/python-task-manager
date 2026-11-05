@@ -1,12 +1,23 @@
 # -*- coding: utf-8 -*-
-"""Консольный менеджер задач (Python Task Manager) — расширенная функциональность."""
+"""Консольный менеджер задач (Python Task Manager) — с валидацией ввода."""
+
+ALLOWED_PRIORITIES = ("Низкий", "Средний", "Высокий")
+
+
+def validate_task_input(title: str, priority: str) -> None:
+    """Проверяет корректность названия и приоритета задачи."""
+    if not isinstance(title, str) or not title.strip():
+        raise ValueError("Название задачи не может быть пустым.")
+    if priority not in ALLOWED_PRIORITIES:
+        raise ValueError(f"Недопустимый приоритет '{priority}'.")
 
 
 def add_task(tasks: list, title: str, priority: str = "Средний") -> dict:
-    """Добавляет новую задачу в список задач."""
+    """Добавляет новую задачу в список задач после валидации."""
+    validate_task_input(title, priority)
     new_task = {
         "id": len(tasks) + 1,
-        "title": title,
+        "title": title.strip(),
         "priority": priority,
         "completed": False
     }
@@ -16,6 +27,8 @@ def add_task(tasks: list, title: str, priority: str = "Средний") -> dict:
 
 def complete_task(tasks: list, task_id: int) -> bool:
     """Отмечает задачу с указанным ID как выполненную."""
+    if not isinstance(task_id, int) or task_id <= 0:
+        raise ValueError("ID задачи должен быть положительным числом.")
     for task in tasks:
         if task["id"] == task_id:
             task["completed"] = True
