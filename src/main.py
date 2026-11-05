@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Консольный менеджер задач (Python Task Manager) — базовая версия."""
+"""Консольный менеджер задач (Python Task Manager) — расширенная функциональность."""
 
 
 def add_task(tasks: list, title: str, priority: str = "Средний") -> dict:
@@ -23,6 +23,22 @@ def complete_task(tasks: list, task_id: int) -> bool:
     return False
 
 
+def delete_task(tasks: list, task_id: int) -> bool:
+    """Удаляет задачу по её идентификатору ID."""
+    for idx, task in enumerate(tasks):
+        if task["id"] == task_id:
+            tasks.pop(idx)
+            return True
+    return False
+
+
+def get_task_statistics(tasks: list) -> dict:
+    """Подсчитывает статистику: всего, выполнено и осталось задач."""
+    total = len(tasks)
+    completed = sum(1 for t in tasks if t["completed"])
+    return {"total": total, "completed": completed, "pending": total - completed}
+
+
 def get_all_tasks(tasks: list) -> list:
     """Возвращает форматированный список всех задач."""
     result = []
@@ -42,6 +58,8 @@ def main():
     print("=== Список задач ===")
     for line in get_all_tasks(tasks):
         print(line)
+    stats = get_task_statistics(tasks)
+    print(f"Статистика: всего={stats['total']}, выполнено={stats['completed']}, в работе={stats['pending']}")
 
 
 if __name__ == "__main__":
