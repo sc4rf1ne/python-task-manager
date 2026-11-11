@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """Консольный менеджер задач (Python Task Manager) — с валидацией ввода."""
 
 APP_VERSION = "1.2.0"
@@ -69,7 +69,7 @@ def main():
     add_task(tasks, "Написать модульные тесты в каталоге tests", "Средний")
     complete_task(tasks, 1)
 
-    print("=== Список задач ===")
+    print("=== ПАНЕЛЬ УПРАВЛЕНИЯ ЗАДАЧАМИ ===")
     for line in get_all_tasks(tasks):
         print(line)
     stats = get_task_statistics(tasks)
