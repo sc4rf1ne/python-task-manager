@@ -69,7 +69,7 @@ def main():
     add_task(tasks, "Написать модульные тесты в каталоге tests", "Средний")
     complete_task(tasks, 1)
 
-    print("=== ПАНЕЛЬ УПРАВЛЕНИЯ ЗАДАЧАМИ ===")
+    print("=== КОНСОЛЬНЫЙ МЕНЕДЖЕР ЗАДАЧ (PYTHON TASK MANAGER v2.0) ===")
     for line in get_all_tasks(tasks):
         print(line)
     stats = get_task_statistics(tasks)
