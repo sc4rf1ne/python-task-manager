@@ -1,4 +1,5 @@
-﻿# -*- coding: utf-8 -*-
+﻿import json
+# -*- coding: utf-8 -*-
 """Консольный менеджер задач (Python Task Manager) — с валидацией ввода."""
 
 APP_VERSION = "1.2.0"
@@ -78,3 +79,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+def export_tasks_to_json(tasks: list, filepath: str) -> None:
+    """Экспортирует список задач в файл формата JSON."""
+    with open(filepath, 'w', encoding='utf-8') as f:
+        json.dump(tasks, f, ensure_ascii=False, indent=2)
